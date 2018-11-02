@@ -6,20 +6,23 @@ def at_least():
                 if len(word) >= 20:
                     print(word)
                 
-def has_no_e():
+def has_no_e(word):
+    if 'e' not in word.lower():
+        return True
+    else:
+        return False
+#        print(float(count_e/count_word)*100)
+def no_e():
     count_word = 0
     count_e = 0
     with open("words.txt") as file:
         for line in file:
             for word in line.strip().split():
                 count_word += 1
-                if 'e' in word.lower():
-                    count_e += 0
-                else:
+                if has_no_e(word) == True:
                     count_e += 1
-        print(float(count_e/count_word)*100)
-def no_e():
-    count_no_e = 0
+                pct = float(count_e/count_word)
+        print(f"{pct*100:.3f} %")
     
 
         
@@ -69,5 +72,5 @@ def no_e():
 
 
 if __name__ == "__main__":
-    has_no_e()
+    no_e()
     #at_least()
