@@ -23,6 +23,25 @@ def no_e():
                     count_e += 1
                 pct = float(count_e/count_word)
         print(f"{pct*100:.3f} %")
+
+def avoids(word, forbidden_letters):
+    for letter in word:
+        for ele in forbidden_letters:
+            if ele in word.lower():
+                return False
+            else:
+                return True
+            
+    
+def count_avoids():
+    count_avoid = 0
+    forbidden_let = input(str("Enter the forbidden letters: "))
+    with open("words.txt") as file:
+        for line in file:
+            for word in line.strip().split():
+                if avoids(word,forbidden_let)==False:
+                    count_avoid +=1
+        print(count_avoid)
     
 
         
@@ -72,5 +91,6 @@ def no_e():
 
 
 if __name__ == "__main__":
-    no_e()
+    count_avoids()
+    #no_e()
     #at_least()
