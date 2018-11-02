@@ -39,7 +39,7 @@ def count_avoids():
     with open("words.txt") as file:
         for line in file:
             for word in line.strip().split():
-                if avoids(word,forbidden_let)==False:
+                if avoids(word,forbidden_let)== True:
                     count_avoid +=1
         print(count_avoid)
     
