@@ -42,8 +42,29 @@ def count_avoids():
                 if avoids(word,forbidden_let)== True:
                     count_avoid +=1
         print(count_avoid)
-    
 
+def uses_only(word, lett):
+    '''
+    >>> uses_only("aabe", "aab")
+    False
+    >>> uses_only("logic", "olgci")
+    True
+    '''
+#    for i in range(len(word)):
+    for letter in word:
+        for ele in lett:
+            if lett in word.lower():
+                return True
+        else:
+            return False
+def words_with_only():
+    lett = input(str("Enter a string of letters: "))
+    with open("words.txt") as file:
+        for line in file:
+            for word in line.strip().split():
+                if uses_only(word,lett)== True:
+                    print(word)
+                    
         
 #    with open("words.txt") as file:
 #        count_the = 0
@@ -91,6 +112,9 @@ def count_avoids():
 
 
 if __name__ == "__main__":
-    count_avoids()
+    import doctest
+    doctest.testmod()
+    words_with_only()
+    #count_avoids()
     #no_e()
     #at_least(
