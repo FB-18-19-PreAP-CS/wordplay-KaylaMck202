@@ -29,8 +29,8 @@ def avoids(word, forbidden_letters):
         for ele in forbidden_letters:
             if ele in word.lower():
                 return False
-            else:
-                return True
+        else:
+            return True
             
     
 def count_avoids():
@@ -93,4 +93,4 @@ def count_avoids():
 if __name__ == "__main__":
     count_avoids()
     #no_e()
-    #at_least()
+    #at_least(
