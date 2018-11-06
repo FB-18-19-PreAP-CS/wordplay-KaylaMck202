@@ -44,19 +44,12 @@ def count_avoids():
         print(count_avoid)
 
 def uses_only(word, lett):
-    '''
-    >>> uses_only("aabe", "aab")
-    False
-    >>> uses_only("logic", "olgci")
-    True
-    '''
-#    for i in range(len(word)):
     for letter in word:
         for ele in lett:
-            if lett in word.lower():
-                return True
-        else:
-            return False
+            if ele not in word.lower():
+                return False
+    else:
+        return True
 def words_with_only():
     lett = input(str("Enter a string of letters: "))
     with open("words.txt") as file:
@@ -65,7 +58,26 @@ def words_with_only():
                 if uses_only(word,lett)== True:
                     print(word)
                     
+def uses_all(word, req_lett):
+    for letter in word:
+        for ele in req_lett:
+            if ele in word.lower():
+                return True
+    else:
+        return False
+def how_many_uses_all():
+    count_all = 0
+    req_let = input(str("Enter a string of required letters: "))
+    with open("words.txt") as file:
+        for line in file:
+            for word in line.strip().split():
+                if uses_all(word,req_let) == True:
+                    count_all +=1
+        print(count_all)
         
+def is_abecedarian():
+    for letter in word:
+        pass
 #    with open("words.txt") as file:
 #        count_the = 0
 #        for line in file:
@@ -114,7 +126,8 @@ def words_with_only():
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-    words_with_only()
+    #how_many_uses_all()
+    #words_with_only()
     #count_avoids()
     #no_e()
     #at_least(
