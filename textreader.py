@@ -74,6 +74,10 @@ def how_many_uses_all():
                 if uses_all(word,req_let) == True:
                     count_all +=1
         print(count_all)
+        
+def is_abecedarian():
+    for letter in word:
+        pass
 #    with open("words.txt") as file:
 #        count_the = 0
 #        for line in file:
@@ -122,7 +126,7 @@ def how_many_uses_all():
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-    how_many_uses_all()
+    #how_many_uses_all()
     #words_with_only()
     #count_avoids()
     #no_e()
