@@ -44,19 +44,12 @@ def count_avoids():
         print(count_avoid)
 
 def uses_only(word, lett):
-    '''
-    >>> uses_only("aabe", "aab")
-    False
-    >>> uses_only("logic", "olgci")
-    True
-    '''
-#    for i in range(len(word)):
     for letter in word:
         for ele in lett:
-            if lett in word.lower():
-                return True
-        else:
-            return False
+            if ele not in word.lower():
+                return False
+    else:
+        return True
 def words_with_only():
     lett = input(str("Enter a string of letters: "))
     with open("words.txt") as file:
