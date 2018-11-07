@@ -61,10 +61,10 @@ def words_with_only():
 def uses_all(word, req_lett):
     for letter in word:
         for ele in req_lett:
-            if ele in word.lower():
-                return True
-    else:
-        return False
+            if ele not in word.lower():
+                return False
+        else:
+            return True
 def how_many_uses_all():
     count_all = 0
     req_let = input(str("Enter a string of required letters: "))
@@ -76,8 +76,7 @@ def how_many_uses_all():
         print(count_all)
         
 def is_abecedarian():
-    for letter in word:
-        pass
+   pass
 #    with open("words.txt") as file:
 #        count_the = 0
 #        for line in file:
@@ -126,7 +125,7 @@ def is_abecedarian():
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-    #how_many_uses_all()
+    how_many_uses_all()
     #words_with_only()
     #count_avoids()
     #no_e()
