@@ -75,8 +75,24 @@ def how_many_uses_all():
                     count_all +=1
         print(count_all)
         
-def is_abecedarian():
-   pass
+def is_abecedarian(word):
+    for i in range(len(word)-1):
+        if word[i] > word[i+1]:
+            i +=1
+            return False
+    else:
+        return True
+    
+def count_abecedarian():
+    count = 0
+    with open("words.txt") as file:
+        for line in file:
+            for word in line.strip().split():
+                if is_abecedarian(word) == True:
+                    count += 1
+        print(count)
+    
+   #pass
 #    with open("words.txt") as file:
 #        count_the = 0
 #        for line in file:
@@ -125,7 +141,8 @@ def is_abecedarian():
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-    how_many_uses_all()
+    count_abecedarian()
+    #how_many_uses_all()
     #words_with_only()
     #count_avoids()
     #no_e()
